@@ -2,7 +2,7 @@
 
 ## Description
 
-This project evaluates and compares the effectiveness of different prompting techniques for Large Language Models (LLMs).
+This project evaluates and compares the effectiveness of different prompting techniques for Large Language Models (LLMs) across different Arabic Natural Processing Tasks (NLP).
 
 Prompt engineering is an important approach for improving the way LLMs respond to different tasks without modifying or retraining the underlying model. Different prompting strategies can affect the quality, accuracy, consistency, and usefulness of model-generated responses.
 
