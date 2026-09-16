@@ -41,7 +41,7 @@ This project evaluates different prompting techniques across four publicly avail
 | Dataset             | Task                  | Language     | Data Type                 | Description                                                                                                                             |
 | ------------------- | --------------------- | ------------ | ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
 | **SANAD**           | News Classification   | Arabic (MSA) | News Articles             | A large-scale Arabic news dataset containing articles collected from multiple Arabic news portals and categorized into seven topics.    |
-| **ASAD**            | Sentiment Analysis    | Arabic       | Tweets                    | A benchmark Arabic sentiment-analysis dataset containing Arabic tweets labeled as **Positive, Negative, or Neutral**.                   |
+| **ASAD**            | Sentiment Analysis    | Arabic       | Tweets                    | A benchmark Arabic sentiment-analysis dataset containing Arabic tweets labeled as Positive, Negative, or Neutral.                       |
 | **XL-Sum – Arabic** | Text Summarization    | Arabic       | News Articles             | The Arabic subset of XL-Sum, a multilingual dataset for abstractive summarization of news articles.                                     |
 | **Arabic-MMLU**     | Knowledge & Reasoning | Arabic       | Multiple-choice Questions | An Arabic adaptation of the Massive Multitask Language Understanding (MMLU) benchmark covering multiple academic and knowledge domains. |
 
@@ -122,6 +122,14 @@ The outputs are evaluated using the metrics appropriate for the selected task.
 
 
 ## Usage Instructions
+The project is organized into Jupyter notebooks, with each notebook corresponding to a specific NLP task and language model.
+
+Each notebook is named according to the task being evaluated and the model used for the experiments.
+
+Each notebook is divided into three main prompting sections:
+* Zero-Shot Prompting
+* Few-Shot Prompting
+* Chain-of-Thought (CoT) Prompting
 
 ### 1. Download the Files
 
