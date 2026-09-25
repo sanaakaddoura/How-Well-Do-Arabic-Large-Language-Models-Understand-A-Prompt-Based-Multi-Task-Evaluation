@@ -63,6 +63,7 @@ The same evaluation examples are used across the prompting conditions for a give
 The repository contains the implementation and experimental materials required to evaluate the prompting techniques.
 
 The repository is organized by task. Each task has a dedicated folder containing the Jupyter notebooks used to run the corresponding experiments:
+```
 .
 ├── News_Classification/
 │   └── <model>_News_Classification_Different_Prompting_Techniques.ipynb
@@ -83,6 +84,7 @@ The repository is organized by task. Each task has a dedicated folder containing
 └── Text_Summarization/
 │   └── <model>_Text_Summarization_Different_Prompting_Techniques.ipynb
     └── Text_Summarization_Prompt.ipynb
+```
 
 **Notebook Components**
 Each notebook follows a consistent experimental structure. The main components are:
