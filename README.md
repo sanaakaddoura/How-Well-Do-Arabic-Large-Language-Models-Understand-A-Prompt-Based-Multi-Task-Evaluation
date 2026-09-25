@@ -82,7 +82,7 @@ The repository is organized by task. Each task has a dedicated folder containing
 │   └── Question_Answering_Prompt.ipynb
 │
 └── Text_Summarization/
-│   └── <model>_Text_Summarization_Different_Prompting_Techniques.ipynb
+    └── <model>_Text_Summarization_Different_Prompting_Techniques.ipynb
     └── Text_Summarization_Prompt.ipynb
 ```
 
