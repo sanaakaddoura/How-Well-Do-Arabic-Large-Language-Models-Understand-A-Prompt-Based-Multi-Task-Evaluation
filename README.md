@@ -2,35 +2,24 @@
 
 ## Description
 
-This project evaluates and compares the effectiveness of different prompting techniques for Large Language Models (LLMs) across different Arabic Natural Processing Tasks (NLP).
+This project evaluates and compares the effectiveness of different prompting techniques for Large Language Models (LLMs) across different Arabic Natural Processing Tasks (NLP). The objective of this project is to experimentally evaluate different prompting techniques using a common evaluation setup. The project provides the prompts and codes required to reproduce the evaluation.
 
-Prompt engineering is an important approach for improving the way LLMs respond to different tasks without modifying or retraining the underlying model. Different prompting strategies can affect the quality, accuracy, consistency, and usefulness of model-generated responses.
-
-The objective of this project is to experimentally evaluate different prompting techniques using a common evaluation setup. The project provides the prompts and codes required to reproduce the evaluation.
-
-The techniques investigated in this project include:
-
+The evaluated prompting techniques include:
 * Zero-Shot Prompting
 * Few-Shot Prompting
 * Chain-of-Thought (CoT) Prompting
 
-The experiments can be used to analyze how changes in prompt design influence the performance of an LLM on the selected tasks:
+The repository provides the code, prompts, and evaluation notebooks required to reproduce the experiments. Each experiment follows a common evaluation setup within its corresponding task, allowing the performance of different prompting techniques to be compared under consistent conditions.
+
+The repository is organized into four main folders, with each folder corresponding to one of the evaluated Arabic NLP tasks:
 * News Clasification
 * Sentiment Analysis
 * Question Answering
 * Text Summarization
 
----
+Each task folder contains multiple Jupyter notebooks. The notebooks are named according to the LLM and task being evaluated. For example, Allam_News_Classification_Different_Prompting_Techniques.ipynb contains the code used to evaluate the ALLaM model on the News Classification task using Zero-Shot, Few-Shot, and Chain-of-Thought prompting.
 
-## Project Objectives
-
-The main objectives of this project are:
-
-1. To implement multiple prompting techniques.
-2. To evaluate the performance of different Arabic specific and multilingual LLMs performance on different tasks using different evaluation tasks.
-3. To compare the generated outputs using consistent evaluation criteria.
-4. To provide reproducible code and experimental results.
-5. To investigate how prompt design influences LLM performance in low resource language (Arabic Language).
+Each notebook is organized into clearly labeled sections corresponding to the different stages of the experiment. The main experimental sections evaluate the model using Zero-Shot, Few-Shot, and Chain-of-Thought prompting. These sections contain the prompts, model inference procedures, and evaluation steps required to assess model performance for the corresponding task.
 
 ---
 
@@ -56,32 +45,76 @@ Each dataset represents a different type of NLP task, allowing the prompting tec
 | **XL-Sum (Arabic)** | Summarization                  | The ability to generate concise summaries that preserve the important information in Arabic news articles.         | Paper DOI: 10.18653/v1/2021.findings-acl.413                             | [XL-Sum URL](https://huggingface.co/datasets/csebuetnlp/xlsum).                              |
 | **Arabic-MMLU**     | Question Answering / Reasoning | The ability of prompting techniques to answer Arabic multiple-choice questions across different knowledge domains. | Paper: arXiv:2402.12840                                                  | [Arabic-MMLU URL](https://huggingface.co/datasets/MBZUAI/ArabicMMLU).                             |
 
-### Dataset Paper Citations
-
-* **SANAD:** Einea, O., Elnagar, A., & Al Debsi, R. (2019). Sanad: Single-label arabic news articles dataset for automatic text categorization. Data in brief, 25, 104076.
-* **ASAD:** Alharbi, B., Alamro, H., Alshehri, M., Khayyat, Z., Kalkatawi, M., Jaber, I. I., & Zhang, X. (2020). ASAD: A twitter-based benchmark arabic sentiment analysis dataset. arXiv preprint arXiv:2011.00578.
-* **XL-Sum:** Hasan, T., Bhattacharjee, A., Islam, M. S., Mubasshir, K., Li, Y. F., Kang, Y. B., ... & Shahriyar, R. (2021, August). XL-sum: Large-scale multilingual abstractive summarization for 44 languages. In Findings of the Association for Computational Linguistics: ACL-IJCNLP 2021 (pp. 4693-4703).
-* **Arabic-MMLU:** Koto, F., Li, H., Shatnawi, S., Doughman, J., Sadallah, A., Alraeesi, A., ... & Baldwin, T. (2024, August). ArabicMMLU: Assessing massive multitask language understanding in Arabic. In Findings of the Association for Computational Linguistics: ACL 2024 (pp. 5622-5640).
-
 ### Data Usage and Evaluation
 
 For each dataset, the same underlying examples are evaluated using the different prompting techniques implemented in this project. This provides a consistent basis for comparing how prompt design affects LLM performance across different Arabic NLP tasks.
 
-The evaluation results can be analyzed according to the characteristics of each dataset, including task type, input format, expected output, and evaluation metric.
+The evaluation procedure depends on the characteristics of each task:
+* News Classification: The model receives an Arabic news article and is prompted to assign it to one of the predefined news categories.
+* Sentiment Analysis: The model receives an Arabic tweet and is prompted to classify its sentiment as Positive, Negative, or Neutral.
+* Text Summarization: The model receives an Arabic news article and is prompted to generate an abstractive summary.
+* Arabic-MMLU: The model receives an Arabic multiple-choice question and its answer options and is prompted to select the correct answer.
+
+The same evaluation examples are used across the prompting conditions for a given task. The resulting model outputs are then compared with the corresponding reference labels or reference summaries using the evaluation procedure and metrics specified in the experimental notebooks.
 
 
 ## Code Information
 
 The repository contains the implementation and experimental materials required to evaluate the prompting techniques.
 
+The repository is organized by task. Each task has a dedicated folder containing the Jupyter notebooks used to run the corresponding experiments:
+.
+├── News_Classification/
+│   └── <model>_News_Classification_Different_Prompting_Techniques.ipynb
+│   └── News_Classification_Prompt.ipynb
+│
+├── Sentiment_Analysis/
+│   └── <model>_Sentiment_Analysis_Different_Prompting_Techniques.ipynb
+│
+├── Question_Answering/
+│   └── Biology
+│       └── <model>_Biology_QA_Different_Prompting_Techniques.ipynb
+│   └── Math
+│       └── <model>_Math_QA_Different_Prompting_Techniques.ipynb
+│   └── Physics
+│       └── <model>_Physics_QA_Different_Prompting_Techniques.ipynb
+│   └── Question_Answering_Prompt.ipynb
+│
+└── Text_Summarization/
+│   └── <model>_Text_Summarization_Different_Prompting_Techniques.ipynb
+    └── Text_Summarization_Prompt.ipynb
 
-### Main Components
+**Notebook Components**
+Each notebook follows a consistent experimental structure. The main components are:
+1. Environment and Library Setup: Imports and install the required Python libraries.
+2. Dataset Loading: Loads the dataset used for evaluation.
+3. Data Preparation: Formats the input examples according to the requirements of the corresponding task.
+4. Prompt Construction: Defines the prompts used for the different prompting techniques.
+5. Model: Load the model and sends the constructed prompts to the selected LLM and records the generated responses.
+6. Output Processing: Processes the model responses into the format required for evaluation.
+7. Evaluation: Compares the model predictions or generated summaries with the corresponding reference data using the task-specific evaluation metrics.
+8. Results: Displays or stores the evaluation results for the corresponding prompting technique.
 
-| Component       | Description                                                 |
-| --------------- | ----------------------------------------------------------- |
-| Prompting Code  | Implements the different prompting techniques.              |
-| Notebooks       | Provide the experimental workflow and analysis.             |
-| README.md       | Documentation and instructions for reproducing the project. |
+---
+
+## Requirements
+
+The project requires Python 3.x and the Python packages used by the implementation.
+
+Typical dependencies include:
+
+```text
+Python >= 3.x
+pandas
+numpy
+transformers
+trl
+peft
+accelerate
+datasets
+openai
+jupyter
+```
 
 ---
 
@@ -166,25 +199,6 @@ huggingface_hub.login('HF_TOKEN')
 
 ### 6. Review the Results
 
-## Requirements
-
-The project requires Python 3.x and the Python packages used by the implementation.
-
-Typical dependencies include:
-
-```text
-Python >= 3.x
-pandas
-numpy
-transformers
-trl
-peft
-accelerate
-datasets
-openai
-jupyter
-```
-
 ---
 
 ## Experimental Configuration
@@ -210,6 +224,13 @@ Changes to these parameters may affect the experimental results.
 This work was supported by Zayed University Research Incentive Fund (RIF) with grant number [23274].
 
 ---
+
+## Dataset Paper Citations
+
+* **SANAD:** Einea, O., Elnagar, A., & Al Debsi, R. (2019). Sanad: Single-label arabic news articles dataset for automatic text categorization. Data in brief, 25, 104076.
+* **ASAD:** Alharbi, B., Alamro, H., Alshehri, M., Khayyat, Z., Kalkatawi, M., Jaber, I. I., & Zhang, X. (2020). ASAD: A twitter-based benchmark arabic sentiment analysis dataset. arXiv preprint arXiv:2011.00578.
+* **XL-Sum:** Hasan, T., Bhattacharjee, A., Islam, M. S., Mubasshir, K., Li, Y. F., Kang, Y. B., ... & Shahriyar, R. (2021, August). XL-sum: Large-scale multilingual abstractive summarization for 44 languages. In Findings of the Association for Computational Linguistics: ACL-IJCNLP 2021 (pp. 4693-4703).
+* **Arabic-MMLU:** Koto, F., Li, H., Shatnawi, S., Doughman, J., Sadallah, A., Alraeesi, A., ... & Baldwin, T. (2024, August). ArabicMMLU: Assessing massive multitask language understanding in Arabic. In Findings of the Association for Computational Linguistics: ACL 2024 (pp. 5622-5640).
 
 ## Author
 
